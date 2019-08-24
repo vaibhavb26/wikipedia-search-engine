@@ -1,0 +1,102 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
+  <page>
+    <title>Kim Hyeon-Woo</title>
+    <ns>0</ns>
+    <id>42567205</id>
+    <redirect title="Kim Hyeon-woo" />
+    <revision>
+      <id>605512342</id>
+      <timestamp>2014-04-23T21:02:00Z</timestamp>
+      <contributor>
+        <username>Mohsen1248</username>
+        <id>3761856</id>
+      </contributor>
+      <comment>Mohsen1248 moved page [[Kim Hyeon-Woo]] to [[Kim Hyeon-woo]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">#REDIRECT [[Kim Hyeon-woo]]
+{{R from move}}</text>
+      <sha1>16kop2unyres98bcaxkfj1674q7xcfd</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Lee Se-Yeol</title>
+    <ns>0</ns>
+    <id>42567208</id>
+    <redirect title="Lee Se-yeol" />
+    <revision>
+      <id>605512408</id>
+      <timestamp>2014-04-23T21:02:32Z</timestamp>
+      <contributor>
+        <username>Mohsen1248</username>
+        <id>3761856</id>
+      </contributor>
+      <comment>Mohsen1248 moved page [[Lee Se-Yeol]] to [[Lee Se-yeol]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">#REDIRECT [[Lee Se-yeol]]
+{{R from move}}</text>
+      <sha1>6d40t9mkghnknpebayjf6uhmgswkp0r</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Marko Virtanen</title>
+    <ns>0</ns>
+    <id>42567219</id>
+    <revision>
+      <id>853776442</id>
+      <parentid>821144454</parentid>
+      <timestamp>2018-08-06T22:47:07Z</timestamp>
+      <contributor>
+        <username>Joeykai</username>
+        <id>14841472</id>
+      </contributor>
+      <minor />
+      <comment>/* External links */clean up, replaced: {{Finland-icehockey-bio-stub}} → {{Finland-icehockey-player-stub}} using [[Project:AWB|AWB]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">{{BLP sources|date=July 2014}}
+{{Use mdy dates|date=April 2014}}
+{{Infobox ice hockey player
+| name = Marko Virtanen
+| image = 
+| caption =
+| image_size = 225px
+| played_for = '''''[[SM-liiga]]'''''&lt;br&gt;[[JYP Jyväskylä]]&lt;br&gt;'''''[[Swedish Hockey League|Elitserien]]'''''&lt;br&gt;[[Färjestad BK]]&lt;br&gt;[[Södertälje SK]]
+| position = [[Winger (ice hockey)|Right Wing]]
+| height_ft = 5
+| height_in = 10
+| weight_lb = 181
+| shoots = Left
+| birth_date = {{birth date and age|1968|12|10}}
+| birth_place = [[Jyväskylä]], [[Finland]]
+| draft = Undrafted
+| career_start = 1988
+| career_end = 2000
+}}
+'''Marko Virtanen''' (born December 10, 1968) is a [[Finland|Finnish]] former professional [[ice hockey]] player. He is currently the head coach of [[JYP Jyväskylä]] in the Finnish [[Liiga]].
+
+Virtanen assumed the position of head coach for JYP with the [[2013–14 Liiga season]].&lt;ref name=&quot;jypliiga&quot;&gt;{{cite web | url=http://www.jypliiga.fi/uutiset/marko-virtanen-jypin-paavalmentajaksi-2013-2015 | title=Marko Virtanen JYPin päävalmentajaksi 2013 – 2015 | publisher=Jypliiga | accessdate=25 July 2014 | deadurl=yes | archiveurl=https://web.archive.org/web/20150316112244/http://www.jypliiga.fi/uutiset/marko-virtanen-jypin-paavalmentajaksi-2013-2015 | archivedate=March 16, 2015 | df=mdy-all }}&lt;/ref&gt;
+
+==References==
+{{Reflist}}
+
+==External links==
+*{{Eliteprospects}}
+*{{hockeydb|34132|Marko Virtanen}}
+
+{{DEFAULTSORT:Virtanen, Marko}}
+[[Category:1968 births]]
+[[Category:Living people]]
+[[Category:Färjestad BK players]]
+[[Category:Finnish ice hockey coaches]]
+[[Category:Finnish ice hockey players]]
+[[Category:JYP Jyväskylä players]]
+[[Category:Södertälje SK players]]
+
+
+{{Finland-icehockey-player-stub}}</text>
+      <sha1>54nhqn193dp90dnwvfv6ye46j26ahrs</sha1>
+    </revision>
+  </page>
+</mediawiki>
