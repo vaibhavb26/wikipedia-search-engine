@@ -1,80 +1,55 @@
 import sys
-import operator
+# import operator
 from collections import defaultdict
-import timeit
+# import timeit
 import re
-import os
+# import os
 import pdb
 import xml.sax
 import nltk
+import json
 from nltk.corpus import stopwords
-from nltk.stem.porter import *
+# from nltk.stem.porter import *
 import Stemmer
-import threading
-from unidecode import unidecode
-from tqdm import tqdm
+# import threading
+# from unidecode import unidecode
+# from tqdm import tqdm
 
 
 currPage = 0
+inverted_index = defaultdict(list)
 
 stemmer = Stemmer.Stemmer('english')
 stop_words =  stopwords.words('english')
 
 
-def Indexing(title, body, info, categories, links, references):
+
+def Indexing(dic):
 
     global currPage
-    # global fileCount
     global indexMap
-    # global offset
-    global dictID
 
     ID = currPage
-    words = defaultdict(int)
-    d = defaultdict(int)
-    for word in self.title:
-        d[word] += 1
-        words[word] += 1
-    title = d
-        
-    d = defaultdict(int)
-    for word in self.body:
-        d[word] += 1
-        words[word] += 1
-    body = d
+    arr = ["title", "body", "info", "cat", "links", "ref"]
+    pageDic = {}
+    for tag in arr:
+        pageDic[tag] = defaultdict(int)
 
-    d = defaultdict(int)
-    for word in self.info:
-        d[word] += 1
-        words[word] += 1
-    info = d
-    
-    d = defaultdict(int)
-    for word in self.categories:
-        d[word] += 1
-        words[word] += 1
-    categories = d
+    words = defaultdict(int)
+
+    for tag in arr:
+        for word in dic[tag]:
+            pageDic[tag][word] += 1
+            words[word] += 1
         
-    d = defaultdict(int)
-    for word in self.links:
-        d[word] += 1
-        words[word] += 1
-    links = d
-        
-    d = defaultdict(int)
-    for word in self.references:
-        d[word] += 1
-        words[word] += 1
-    references = d
-    
     for word in words.keys():
-        t = title[word]
-        b = body[word]
-        i = info[word]
-        c = categories[word]
-        l = links[word]
-        r = references[word]
-        string = 'd'+str(ID)
+        t = pageDic["title"][word]
+        b = pageDic["body"][word]
+        i = pageDic["info"][word]
+        r = pageDic["ref"][word]
+        c = pageDic["cat"][word]
+        l = pageDic["links"][word]
+        string = 'd'+str(currPage)
         if t:
             string += 't' + str(t)
         if b:
@@ -88,9 +63,8 @@ def Indexing(title, body, info, categories, links, references):
         if r:
             string += 'r' + str(r)
         
-        indexMap[word].append(string)
-        
-        currPage += 1
+        inverted_index[word].append(string)    
+    currPage += 1
 
 
 def stemming(text):
@@ -233,6 +207,8 @@ class docHandler(xml.sax.ContentHandler):
 
         if tag == "page":
             title, info, body, ref, links, cat = preprocess(self.title, self.text)
+            dic = {"title": title, "body": body, "info": info, "cat": cat, "links": links, "ref": ref}
+            Indexing(dic)
             self.tag = ""
             self.title = ""
             self.text = ""
@@ -254,3 +230,6 @@ def Parser(filename):
 
 if __name__ == "__main__":
     Parser(sys.argv[1])
+    inverted_index = {"inverted_index": inverted_index}
+    with open("inverted_index.txt", "w+") as file:
+        file.write(json.dumps(inverted_index))
