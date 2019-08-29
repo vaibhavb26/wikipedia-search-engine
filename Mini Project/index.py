@@ -1,23 +1,16 @@
 import sys
-# import operator
 from collections import defaultdict
-# import timeit
 import re
-# import os
-import pdb
 import xml.sax
 import nltk
 import json
 from nltk.corpus import stopwords
-# from nltk.stem.porter import *
 import Stemmer
-# import threading
-# from unidecode import unidecode
-# from tqdm import tqdm
 
 
 currPage = 0
 inverted_index = defaultdict(list)
+title_dic = defaultdict(str)
 
 stemmer = Stemmer.Stemmer('english')
 stop_words =  stopwords.words('english')
@@ -43,25 +36,31 @@ def Indexing(dic):
             words[word] += 1
         
     for word in words.keys():
+        string = str(currPage)
+
         t = pageDic["title"][word]
-        b = pageDic["body"][word]
-        i = pageDic["info"][word]
-        r = pageDic["ref"][word]
-        c = pageDic["cat"][word]
-        l = pageDic["links"][word]
-        string = 'd'+str(currPage)
         if t:
             string += 't' + str(t)
+        
+        b = pageDic["body"][word]
         if b:
             string += 'b' + str(b)
+        
+        i = pageDic["info"][word]
         if i:
             string += 'i' + str(i)
-        if c:
-            string += 'c' + str(c)
-        if l:
-            string += 'l' + str(l)
+
+        r = pageDic["ref"][word]
         if r:
             string += 'r' + str(r)
+        
+        c = pageDic["cat"][word]
+        if c:
+            string += 'c' + str(c)
+        
+        l = pageDic["links"][word]
+        if l:
+            string += 'l' + str(l)
         
         inverted_index[word].append(string)    
     currPage += 1
@@ -86,6 +85,7 @@ def removeStopwords(text):
 
 def processTitle(title):
     
+    title_dic[currPage] = title
     title = tokenization(title)
     title = removeStopwords(title)
     title = stemming(title)
@@ -163,10 +163,12 @@ def preprocess(title, text):
     
 
     text = text.encode("ascii", errors="ignore").decode()
+    text = text.strip()
     text = text.lower()
     text = text.replace("== references ==", "==references==")
     text = text.split("==references==")
     title = title.encode("ascii", errors="ignore").decode()
+    title = title.strip()
     title = title.lower()
     title = processTitle(title)
     
@@ -231,5 +233,8 @@ def Parser(filename):
 if __name__ == "__main__":
     Parser(sys.argv[1])
     inverted_index = {"inverted_index": inverted_index}
-    with open("inverted_index.txt", "w+") as file:
+    folder = sys.argv[2]
+    with open(folder + "/inverted_index.txt", "w+") as file:
         file.write(json.dumps(inverted_index))
+    with open(folder + "/title.txt", "w+") as file:
+        file.write(json.dumps(title_dic))
